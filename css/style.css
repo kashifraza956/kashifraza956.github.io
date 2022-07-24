@@ -1269,3 +1269,32 @@ footer .credits a {
     bottom: 15px;
   }
 }
+
+
+/*
+================================================
+================================================
+START Custom Overflow
+================================================
+================================================
+*/
+::-webkit-scrollbar {
+  width: 8px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #e7e7f7; /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #98989a; /* color of the scroll thumb */
+  border-radius: 15px; /* roundness of the scroll thumb */
+  border: 1px solid transparent; /* creates padding around scroll thumb */
+}
+/*
+================================================
+================================================
+END Custom Overflow
+================================================
+================================================
+*/
