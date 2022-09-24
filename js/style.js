@@ -88,3 +88,45 @@ if (peerType == 1) {
     );
   });
 }
+
+// Peer 2
+var peer2 = new Peer();
+console.log({ peer2 });
+peer2.on("open", function (id) {
+  console.log("My peer2 ID is: " + id);
+});
+
+peer2.on("connection", function (conn) {
+  conn.on("open", function () {
+    debugger;
+
+    // Receive messages
+    conn.on("data", function (data) {
+      console.log("Received2", data);
+    });
+
+    // Send messages
+    conn.send("Hello2!");
+  });
+});
+
+peer2.on("call", function (call) {
+  getUserMedia(
+    { video: true, audio: true },
+    function (stream2) {
+      console.log({ stream2 });
+      localVideo.srcObject = stream2;
+
+      call.answer(stream2); // Answer the call with an A/V stream.
+      call.on("stream", function (remoteStream2) {
+        console.log({ remoteStream2 });
+        remoteVideo.srcObject = remoteStream2;
+
+        // Show stream in some video/canvas element.
+      });
+    },
+    function (err) {
+      console.log("Failed to get local stream", err);
+    }
+  );
+});
