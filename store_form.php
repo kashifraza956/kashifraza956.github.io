@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     'subject' => $subject,
     'message' => $message,
   ];
+  print_r($data);
 
   // Encode data to JSON string
   $jsonData = json_encode($data, JSON_PRETTY_PRINT);
